@@ -24,9 +24,10 @@ export default async function PageOrder({ params }: { params: Promise<{ category
     <>
     <h1 className='text-xl font-semibold leading-tight mb-10'>Elige y personaliza <br /> tu pedido! 👋</h1>
       <div className='grid grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-3 items-start'>
-        {products.map(product => (
+        {products.map((product, index) => (
           <ProductCard 
           key={product.id}
+          index={index}
           product={product}/>
         ))}
       </div>
