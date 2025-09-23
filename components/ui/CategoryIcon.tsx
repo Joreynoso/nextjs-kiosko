@@ -15,7 +15,7 @@ export default function CategoryIcon({ category }: CategoryIconProps) {
     return (
         <>
             <div
-                className='flex items-center gap-4 w-full hover:bg-gray-100 transition-colors duration-100 ease-in cursor-pointer'
+                className='flex items-center gap-4 w-full hover:bg-gray-100 hover:rounded-lg transition-colors duration-100 ease-in cursor-pointer'
             >
 
                 <div className={`w-10 h-10 relative rounded-md ${category.slug === params.category ? 'bg-gray-900' : 'bg-gray-100'}`}>
