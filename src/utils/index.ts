@@ -1,6 +1,7 @@
 export function formatCurrency(amount: number) {
     return new Intl.NumberFormat('en-US', {
+        currency: 'ARS',
         style: 'currency',
-        currency: 'ARS'
-    }).format(amount)
+        currencyDisplay: 'code'
+    }).format(amount).replace('ARS', '').trim() + ' ARS'
 }

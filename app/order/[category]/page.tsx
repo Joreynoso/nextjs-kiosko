@@ -1,13 +1,14 @@
-import ProductCard from '@/components/products/ProductCard';
+import ProductCard from "@/components/products/ProductCard"
 import { prisma } from "@/src/lib/prisma"
+import { notFound } from "next/navigation"
 
 async function getProducts(category: string) {
   const products = await prisma.product.findMany({
     where: {
       category: {
-        slug: category
-      }
-    }
+        slug: category,
+      },
+    },
   })
 
   return products
@@ -15,20 +16,24 @@ async function getProducts(category: string) {
 
 export default async function PageOrder({ params }: { params: Promise<{ category: string }> }) {
   // Await params primero
-  const { category } = await params;
-
+  const { category } = await params
+  
   // Luego usar category
-  const products = await getProducts(category);
+  const products = await getProducts(category)
+
+  // Si no hay productos, mostramos not-found
+  if (products.length === 0) {
+    notFound()
+  }
 
   return (
     <>
-    <h1 className='text-xl font-semibold leading-tight mb-10'>Elige y personaliza <br /> tu pedido! 👋</h1>
-      <div className='grid grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-3 items-start'>
+      <h1 className="text-xl font-semibold leading-tight mb-4">
+        Elige y personaliza <br /> tu pedido! 👋
+      </h1>
+      <div className="grid grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-3 items-start">
         {products.map((product, index) => (
-          <ProductCard 
-          key={product.id}
-          index={index}
-          product={product}/>
+          <ProductCard key={product.id} index={index} product={product} />
         ))}
       </div>
     </>
