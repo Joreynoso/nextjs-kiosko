@@ -2,6 +2,18 @@ import { z } from 'zod'
 
 export const OrderSchema = z.object({
     name: z
-    .string()
-    .min(3, 'tu nombre es obligatorio')
+        .string()
+        .min(3, 'tu nombre es obligatorio'),
+
+    total: z
+        .number()
+        .min(1, 'Hay errores en la orden'),
+
+    order: z.array(z.object({
+        name: z.string(),
+        id: z.number(),
+        price: z.number(),
+        quantity: z.number(),
+        subtotal: z.number()
+    }))
 })
