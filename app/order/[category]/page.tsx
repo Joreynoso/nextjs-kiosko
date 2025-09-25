@@ -1,4 +1,5 @@
 import ProductCard from "@/components/products/ProductCard"
+import Heading from '@/components/ui/Heading'
 import { prisma } from "@/src/lib/prisma"
 import { notFound } from "next/navigation"
 
@@ -28,9 +29,10 @@ export default async function PageOrder({ params }: { params: Promise<{ category
 
   return (
     <>
-      <h1 className="text-xl font-semibold leading-tight mb-4">
-        Elige y personaliza <br /> tu pedido! 👋
-      </h1>
+      <Heading>
+        Elije y personaliza <br /> tu pedido 👋
+      </Heading>
+      
       <div className="grid grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-3 items-start">
         {products.map((product, index) => (
           <ProductCard key={product.id} index={index} product={product} />

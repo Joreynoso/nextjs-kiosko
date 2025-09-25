@@ -31,7 +31,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`bg-gray-100 ${interSans.variable} ${interSans.variable} antialiased`}>
+      <body className={`bg-gray-100 ${interSans.variable} ${interSans.variable} antialiased ultra-minimal-scrollbars`}>
         {children}
         <SizeScreenHelper />
       </body>

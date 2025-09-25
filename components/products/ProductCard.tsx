@@ -14,7 +14,6 @@ type ProductCardProps = {
 
 export default function ProductCard({ product, index }: ProductCardProps) {
 
-
     // render return
     return (
         <>

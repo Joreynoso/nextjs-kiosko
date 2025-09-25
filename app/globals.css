@@ -1,1 +1,124 @@
 @import "tailwindcss";
+
+/* Scrollbar minimalista - Webkit browsers (Chrome, Safari, Edge) */
+.minimal-scroll {
+  /* Ancho del scrollbar */
+  scrollbar-width: thin;
+  scrollbar-color: #e5e7eb #f9fafb;
+}
+
+.minimal-scroll::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+.minimal-scroll::-webkit-scrollbar-track {
+  background: #f9fafb;
+  border-radius: 10px;
+}
+
+.minimal-scroll::-webkit-scrollbar-thumb {
+  background: #e5e7eb;
+  border-radius: 10px;
+  border: 1px solid #f3f4f6;
+}
+
+.minimal-scroll::-webkit-scrollbar-thumb:hover {
+  background: #d1d5db;
+}
+
+.minimal-scroll::-webkit-scrollbar-corner {
+  background: #f9fafb;
+}
+
+/* Versión aún más pequeña y sutil */
+.ultra-minimal-scroll {
+  scrollbar-width: thin;
+  scrollbar-color: #f3f4f6 transparent;
+}
+
+.ultra-minimal-scroll::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+
+.ultra-minimal-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.ultra-minimal-scroll::-webkit-scrollbar-thumb {
+  background: #f3f4f6;
+  border-radius: 8px;
+}
+
+.ultra-minimal-scroll::-webkit-scrollbar-thumb:hover {
+  background: #e5e7eb;
+}
+
+/* Scrollbar que aparece solo en hover */
+.hover-scroll {
+  scrollbar-width: thin;
+  scrollbar-color: transparent transparent;
+  transition: scrollbar-color 0.3s ease;
+}
+
+.hover-scroll:hover {
+  scrollbar-color: #e5e7eb #f9fafb;
+}
+
+.hover-scroll::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+.hover-scroll::-webkit-scrollbar-track {
+  background: transparent;
+  transition: background 0.3s ease;
+}
+
+.hover-scroll::-webkit-scrollbar-thumb {
+  background: transparent;
+  border-radius: 10px;
+  transition: background 0.3s ease;
+}
+
+.hover-scroll:hover::-webkit-scrollbar-track {
+  background: #f9fafb;
+}
+
+.hover-scroll:hover::-webkit-scrollbar-thumb {
+  background: #e5e7eb;
+}
+
+.hover-scroll:hover::-webkit-scrollbar-thumb:hover {
+  background: #d1d5db;
+}
+
+/* Para elementos específicos como divs con overflow */
+.scrollable-container {
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+/* Aplicar a toda la página */
+body.minimal-scrollbars {
+  scrollbar-width: thin;
+  scrollbar-color: #e5e7eb #f9fafb;
+}
+
+body.minimal-scrollbars::-webkit-scrollbar {
+  width: 8px;
+}
+
+body.minimal-scrollbars::-webkit-scrollbar-track {
+  background: #f9fafb;
+}
+
+body.minimal-scrollbars::-webkit-scrollbar-thumb {
+  background: #e5e7eb;
+  border-radius: 10px;
+}
+
+body.minimal-scrollbars::-webkit-scrollbar-thumb:hover {
+  background: #d1d5db;
+}
