@@ -17,3 +17,9 @@ export const OrderSchema = z.object({
         subtotal: z.number()
     }))
 })
+
+// trabajando con inputs (son todos string) pero debo comparar numeros ?
+export const OrderIdSchema = z.object({
+    orderId: z.string().transform((value) => parseInt(value))
+    .refine(value => value > 0, {message: 'hay erroresF'})
+})

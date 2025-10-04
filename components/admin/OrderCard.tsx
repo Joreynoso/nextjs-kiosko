@@ -2,6 +2,7 @@
 import { OrderWithProducts } from '@/src/lib/types'
 import { formatCurrency } from '@/src/utils'
 import { motion } from 'framer-motion'
+import { completeOrder } from '@/actions/complete-order-action'
 
 type OrderCardProps = {
     order: OrderWithProducts
@@ -55,11 +56,22 @@ export default function OrderCard({ order, index }: OrderCardProps) {
                 </div>
 
                 {/* Botón */}
-                <div className="p-4 border-t border-gray-100">
-                    <button className="w-full py-3 px-4 rounded-xl font-medium bg-green-600 text-white hover:bg-green-700 active:bg-green-800 transition-colors duration-200">
-                        Marcar como completado
-                    </button>
-                </div>
+                <form
+                    action={completeOrder}
+                    className="p-4 border-t border-gray-100">
+
+                    {/* input hidden para recuperar el id y enviarlo al action */}
+                    <input type="hidden"
+                        value={order.id}
+                        name="order_id"
+                        id="order_id" />
+
+                    <input
+                        type='submit'
+                        value={'marcar como completado'}
+                        className="w-full py-3 px-4 rounded-xl font-medium bg-green-600 text-white hover:bg-green-700 active:bg-green-800 transition-colors duration-200">
+                    </input>
+                </form>
             </motion.div>
         </>
     )
