@@ -7,6 +7,8 @@ type ProductTableProps = {
 }
 
 export default function ProductTable({ products }: ProductTableProps): JSX.Element {
+
+  // product list component
   const productList = products.map((product) => (
     <tr key={product.id}>
       <td className="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-0">
@@ -21,12 +23,13 @@ export default function ProductTable({ products }: ProductTableProps): JSX.Eleme
       </td>
     </tr>
   ))
+
   // render return
   return (
-    <div className="px-4 sm:px-6 lg:px-8 mt-10">
-      <div className="flow-root">
+    <div className="px-4 sm:px-6 lg:px-8">
+      <div className="flow-root shadow-md">
         <div className="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
-          <div className="inline-block min-w-full py-2 align-middle sm:px-6 lg:px-8 bg-white p-5 ">
+          <div className="inline-block min-w-full py-2 align-middle sm:px-6 lg:px-8 bg-white p-5 rounded-xl ">
             <table className="min-w-full divide-y divide-gray-300 ">
               <thead>
                 <tr>
