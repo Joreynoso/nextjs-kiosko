@@ -1,5 +1,9 @@
 "use client"
 
+import { ProductSchema } from '@/src/schema'
+import { PrivateResultType } from '@prisma/client/runtime/library'
+import { toast } from 'react-toastify'
+
 export default function AddProductForm({ children }: { children: React.ReactNode }) {
 
     // hablde submit
@@ -9,7 +13,17 @@ export default function AddProductForm({ children }: { children: React.ReactNode
             price: formData.get('price'),
             categoryId: formData.get('categoryId'),
         }
-        console.log(data)
+
+        // validar con zod antes en servidor
+        const result = ProductSchema.safeParse(data)
+        if(!result.success){
+            result.error.issues.forEach(issue => {
+               toast.error(issue.message)
+            })
+            return
+        }
+
+        console.log(result.data)
     }
 
     // render return
